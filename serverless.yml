@@ -1,0 +1,41 @@
+
+service: node-aws-lambda
+
+provider:
+  name: aws
+  stage: ${opt:stage, 'dev'}
+  runtime: nodejs8.10
+  region: us-east-1
+  environment: ${file(environment.${self:provider.stage}.yml)} 
+
+functions:
+  getAllProducts:
+    handler: lambda.httpHandler
+    events:
+      - http:
+          path: api/products
+          method: get
+  getProductById:
+    handler: lambda.httpHandler
+    events:
+      - http:
+          path: api/products/{id}
+          method: get
+  createProduct:
+    handler: lambda.httpHandler
+    events:
+      - http:
+          path: api/products
+          method: post
+  updateProduct:
+    handler: lambda.httpHandler
+    events:
+      - http:
+          path: api/products/{id}
+          method: put
+  deleteProduct:
+    handler: lambda.httpHandler
+    events:
+      - http:
+          path: api/products/{id}
+          method: delete
