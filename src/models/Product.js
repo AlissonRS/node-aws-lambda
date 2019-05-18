@@ -7,12 +7,10 @@ const ProductSchema = new mongoose.Schema({
         required: true
     },
     description: {
-        type: String,
-        required: true
+        type: String
     },
     url: {
-        type: String,
-        required: true
+        type: String
     },
     createdAt: {
         type: Date,

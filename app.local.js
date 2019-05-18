@@ -9,7 +9,7 @@ if (result.error) {
 }
 
 const app = require('./app')
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3002
 
 app.listen(port, () => 
   console.log(`Local server is listening on port ${port}.`)
